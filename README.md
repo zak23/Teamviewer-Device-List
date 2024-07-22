@@ -14,8 +14,8 @@ This Node.js application allows you to view and search for TeamViewer devices, s
 1. Clone the repository:
 
  ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/your-username/Teamviewer-Device-List.git
+   cd Teamviewer-Device-List
    ```
    
 2. Install dependencies:
