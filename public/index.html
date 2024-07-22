@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device List</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { margin-bottom: 10px; padding: 5px; width: 300px; }
+        ul { list-style-type: none; padding: 0; }
+        li { padding: 5px 0; }
+        .online { color: green; }
+        .offline { color: red; }
+    </style>
+</head>
+<body>
+<h1>Device List</h1>
+<input type="text" id="searchInput" placeholder="Search for devices..." onkeyup="filterDevices()">
+<ul id="deviceList"></ul>
+
+<script>
+    async function fetchDevices() {
+        try {
+            const response = await fetch('/api/devices');
+            const devices = await response.json();
+            displayDevices(devices);
+        } catch (error) {
+            console.error('Error fetching devices:', error);
+        }
+    }
+
+    function displayDevices(devices) {
+        const list = document.getElementById('deviceList');
+        list.innerHTML = '';
+
+        devices.forEach(device => {
+            const li = document.createElement('li');
+            const statusClass = device.online_state === 'Online' ? 'online' : 'offline';
+            li.className = statusClass;
+            li.textContent = `${device.alias}: ${device.online_state}`;
+            list.appendChild(li);
+        });
+    }
+
+    function filterDevices() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const items = document.querySelectorAll('#deviceList li');
+
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(input) ? '' : 'none';
+        });
+    }
+
+    // Fetch devices when the page loads
+    fetchDevices();
+</script>
+</body>
+</html>
