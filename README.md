@@ -1,6 +1,6 @@
 # TeamViewer Device Management Web Application
 
-This Node.js application allows you to view and search for TeamViewer devices, specifically Australia Post Parcel Lockers. It sorts devices by their connection status and allows for filtering by device alias.
+This Node.js application allows you to view and search for TeamViewer devices. It sorts devices by their connection status and allows for filtering by device alias.
 
 ## Features
 
@@ -14,7 +14,7 @@ This Node.js application allows you to view and search for TeamViewer devices, s
 1. Clone the repository:
 
  ```bash
-   git clone https://github.com/your-username/Teamviewer-Device-List.git
+   git clone https://github.com/zak23/Teamviewer-Device-List.git
    cd Teamviewer-Device-List
    ```
    
@@ -67,16 +67,16 @@ CMD ["node", "server.js"]
 2. Build and run the Docker container:
 
 ```
-docker build -t teamviewer-app .
-docker run -p 3000:3000 --env-file .env teamviewer-app
+docker build -t teamviewer-devices .
+docker run -p 3000:3000 --env-file .env teamviewer-devices
 ```
 
 # Security
-- The API token used has read-only permissions to ensure that no changes can be made to the TeamViewer settings.
+- Use API token that has read-only permissions to ensure that no changes can be made to the TeamViewer settings.
 - The application can be outward-facing and accessed by technical staff.
 
 # Customization
 The application can be modified to better suit your specific needs. If you have any requests for changes or additional features, please let us know.
 
-# License
-This project is licensed under the MIT License - see the LICENSE file for details.
+# Support
+If you encounter any issues or have any questions, please contact us at sales@snappy-sites.com.au

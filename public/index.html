@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Device List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; }
         input { margin-bottom: 10px; padding: 5px; width: 300px; }
@@ -14,9 +15,17 @@
     </style>
 </head>
 <body>
-<h1>Device List</h1>
-<input type="text" id="searchInput" placeholder="Search for devices..." onkeyup="filterDevices()">
-<ul id="deviceList"></ul>
+<h1 class="text-center">Device List</h1>
+<input type="text" id="searchInput" placeholder="Search for devices..." class="form-control" onkeyup="filterDevices()">
+<ul id="deviceList" class="list-group"></ul>
+<footer class="text-center">
+    <p><a href="https://www.zakozbourne.com" class="text-reset" target="_blank">Zak Ozbourne</a></p>
+
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
     async function fetchDevices() {
@@ -35,8 +44,8 @@
 
         devices.forEach(device => {
             const li = document.createElement('li');
-            const statusClass = device.online_state === 'Online' ? 'online' : 'offline';
-            li.className = statusClass;
+            const statusClass = device.online_state === 'Online' ? 'list-group-item-success' : 'list-group-item-danger';
+            li.className = `list-group-item ${statusClass}`;
             li.textContent = `${device.alias}: ${device.online_state}`;
             list.appendChild(li);
         });
