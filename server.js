@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();  // Load environment variables from .env file
 
 const app = express();
-const port = 3000;
+const port = 1236;
 
 // Get API token from environment variables
 const apiToken = process.env.API_TOKEN;
