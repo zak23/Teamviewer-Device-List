@@ -19,6 +19,6 @@ docker build --no-cache -t teamviewer-devices .
 
 # Run Docker container with custom name, volume, port mapping, and restart policy
 docker run --name $custom_container_name -d \
-    -p 1235:1235 \
+    -p 1236:1236 \
     --restart unless-stopped \
     teamviewer-devices
